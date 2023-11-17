@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <script type="text/javascript" src="main.js"></script>
+
+    <style>
+        #recordList{display: none;}
+        #registration{display: none;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        body[page=list] #recordList{ display: block; }    
+        body[page=register] #registration{ display: flex; }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        
+        table{
+            width: 90%;
+            border-collapse: collapse;
+        }
+        table th,
+        table td{
+            font-size: 14px;
+            padding: 10px 15px;
+            border: solid 1px #ccc;
+        }
+
+        button{
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: rgb(0, 111, 221);
+            color: #ffffff;
+            margin: 3px;
+            padding: 10px 15px;
+        }
+        button.cinza{
+            background-color: #9c7777;
+        }
+        button.vermelho{
+            background-color: #da1d1d;
+
+        }
+        button:hover{
+            opacity: 0.6;
+        }
+
+        input{
+            border: solid 1px #ccc;
+            border-radius: 3px;
+            padding: 10px;
+
+        }
+
+        .label>div{
+            display: flex;
+        }
+        .label>div>input{
+            flex: 1;
+        }
+
+
+    </style>
+
+</head>
+<body page="list">
+
+    <div id="recordList">
+
+        <div style="display: flex;">
+            <input style="flex:1" placeholder="Research" autofocus id='inputPesquisa' />
+
+        </div>
+
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Fone</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody  id="recordListBody"></tbody>
+        </table>
+
+        <div>
+           <button onclick="vizualizar('register', true)">New User</button> 
+        </div>
+
+    </div>
+
+    <form id="registration">
+
+        <div class="label">
+            <div>ID</div>
+            <div>
+                <input type="number" readonly id="id" />
+            </div>
+
+        </div>
+        <div class="label">
+            <div>Name</div>
+            <div>
+                <input id="name"/>
+            </div>
+
+        </div>
+        <div class="label">
+            <div>Fone</div>
+            <div>
+                <input type="tel" id="fone"/>
+            </div>
+
+            <div>
+                <button>Save</button>
+                <button onclick="vizualizar('list')" class="cinza" type="button">Cancel</button> 
+                
+             </div>
+
+        </div>
+
+    </form>
+
+    
+</body>
+</html>
